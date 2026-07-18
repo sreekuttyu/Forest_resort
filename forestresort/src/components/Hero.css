@@ -1,0 +1,171 @@
+/* ---- Hero ------------------------------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;           /* exact viewport height — fills the screen */
+  min-height: 600px;
+  display: flex;
+  align-items: center;      /* vertically centered */
+  overflow: hidden;
+}
+
+/* ---- Background image ------------------------------------ */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__img,
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* Overlay: darkens the left third more so text reads cleanly;
+   matches the screenshot's directional shadow look */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    /* left vignette — makes text area dark */
+    linear-gradient(
+      to right,
+      rgba(20, 30, 20, 0.68) 0%,
+      rgba(20, 30, 20, 0.45) 40%,
+      rgba(20, 30, 20, 0.15) 65%,
+      transparent 100%
+    ),
+    /* top bar — helps navbar text */
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      transparent 20%
+    ),
+    /* bottom fade — mild */
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.18) 0%,
+      transparent 25%
+    );
+}
+
+/* ---- Content --------------------------------------------- */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  /* Left-align the text block; don't use full container width */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 4rem;        /* push down slightly from navbar */
+}
+
+.hero__text {
+  max-width: 480px;
+}
+
+/* Eyebrow */
+.hero__eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.1rem;
+}
+
+/* Main headline — large italic serif like in the image */
+.hero__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6.5vw, 5.25rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.03;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+/* Body text */
+.hero__body {
+  font-size: 0.9375rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+}
+
+/* ---- CTA buttons ----------------------------------------- */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* "Reserve a Cabin →" — ghost: no background, just text */
+.hero__btn-ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background 0.2s, border-color 0.2s;
+}
+.hero__btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* "Explore Resort" — solid white border, white fill on hover */
+.hero__btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.hero__btn-outline:hover {
+  background: #fff;
+  color: var(--primary);
+  border-color: #fff;
+}
+
+/* ---- Scroll indicator ------------------------------------ */
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.35);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1);   transform-origin: top; }
+  50%       { opacity: 0.9;  transform: scaleY(0.5); transform-origin: top; }
+}
+
+/* ---- Responsive ------------------------------------------ */
+@media (max-width: 768px) {
+  .hero__heading { font-size: clamp(2.25rem, 9vw, 3.5rem); }
+  .hero__scroll  { display: none; }
+  .hero__content { padding-top: 5rem; }
+}

@@ -1,0 +1,4 @@
+/* Entry point — imports all global styles */
+@import './styles.css';
+@import './components/Buttons.css';
+@import './pages/Pages.css';

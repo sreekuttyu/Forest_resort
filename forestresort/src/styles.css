@@ -1,0 +1,150 @@
+/* ============================================================
+   VERDE COVE — Design Tokens & Global Styles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
+
+/* ---- Reset / Base ---------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---- CSS Custom Properties ------------------------------- */
+:root,
+[data-theme="forest"] {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --radius: 0.5rem;
+
+  /* Forest & Earth palette */
+  --background:        #f5f1e8;
+  --foreground:        #1c2b1c;
+  --card:              #ffffff;
+  --card-foreground:   #1c2b1c;
+  --primary:           #2d3e2d;
+  --primary-foreground:#f5f1e8;
+  --secondary:         #4a7c59;
+  --secondary-foreground:#ffffff;
+  --muted:             #e8e3d6;
+  --muted-foreground:  #5a5a48;
+  --accent:            #c8a96e;
+  --accent-foreground: #2d3e2d;
+  --sand:              #c8a96e;
+  --sand-foreground:   #2d3e2d;
+  --border:            #d8d1b8;
+  --ring:              #4a7c59;
+
+  --hero-overlay: linear-gradient(
+    180deg,
+    color-mix(in oklab, #2d3e2d 55%, transparent) 0%,
+    color-mix(in oklab, #2d3e2d 25%, transparent) 45%,
+    color-mix(in oklab, #2d3e2d 75%, transparent) 100%
+  );
+}
+
+[data-theme="tropical"] {
+  --background:        #f4f1de;
+  --foreground:        #1a2e28;
+  --card:              #ffffff;
+  --card-foreground:   #1a2e28;
+  --primary:           #0a4d3c;
+  --primary-foreground:#f4f1de;
+  --secondary:         #2a9d8f;
+  --secondary-foreground:#ffffff;
+  --muted:             #e6e0c8;
+  --muted-foreground:  #5a5a48;
+  --accent:            #e9c46a;
+  --accent-foreground: #0a4d3c;
+  --sand:              #e9c46a;
+  --sand-foreground:   #0a4d3c;
+  --border:            #d8d1b3;
+  --ring:              #2a9d8f;
+  --hero-overlay: linear-gradient(
+    180deg,
+    color-mix(in oklab, #0a4d3c 55%, transparent),
+    color-mix(in oklab, #0a4d3c 25%, transparent) 45%,
+    color-mix(in oklab, #0a4d3c 75%, transparent)
+  );
+}
+
+[data-theme="mist"] {
+  --background:        #faf7f2;
+  --foreground:        #1e2828;
+  --card:              #ffffff;
+  --card-foreground:   #1e2828;
+  --primary:           #1e3a3a;
+  --primary-foreground:#faf7f2;
+  --secondary:         #7a9e9f;
+  --secondary-foreground:#ffffff;
+  --muted:             #ece7de;
+  --muted-foreground:  #5f6363;
+  --accent:            #d4a574;
+  --accent-foreground: #1e3a3a;
+  --sand:              #d4a574;
+  --sand-foreground:   #1e3a3a;
+  --border:            #ded7c9;
+  --ring:              #7a9e9f;
+  --hero-overlay: linear-gradient(
+    180deg,
+    color-mix(in oklab, #1e3a3a 50%, transparent),
+    color-mix(in oklab, #1e3a3a 20%, transparent) 45%,
+    color-mix(in oklab, #1e3a3a 70%, transparent)
+  );
+}
+
+[data-theme="sunset"] {
+  --background:        #fdf6ec;
+  --foreground:        #2a1a10;
+  --card:              #ffffff;
+  --card-foreground:   #2a1a10;
+  --primary:           #3d2817;
+  --primary-foreground:#fdf6ec;
+  --secondary:         #a0522d;
+  --secondary-foreground:#fdf6ec;
+  --muted:             #f0e6d2;
+  --muted-foreground:  #6b5340;
+  --accent:            #e8b04b;
+  --accent-foreground: #3d2817;
+  --sand:              #e8b04b;
+  --sand-foreground:   #3d2817;
+  --border:            #e2d5bd;
+  --ring:              #a0522d;
+  --hero-overlay: linear-gradient(
+    180deg,
+    color-mix(in oklab, #3d2817 55%, transparent),
+    color-mix(in oklab, #3d2817 25%, transparent) 45%,
+    color-mix(in oklab, #3d2817 75%, transparent)
+  );
+}
+
+/* ---- Global Typography & Body ----------------------------- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: var(--font-sans); }
+
+/* ---- Utility --------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+}

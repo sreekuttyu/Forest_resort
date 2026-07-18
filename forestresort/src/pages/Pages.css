@@ -1,0 +1,79 @@
+/* ---- Page wrapper & common styles ----------------------- */
+.page-wrapper {
+  background: var(--background);
+  min-height: 100svh;
+  padding-top: 5.5rem;
+}
+
+.page-header {
+  padding: 4rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+  margin: 0 0 1rem;
+}
+
+.page-subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  max-width: 520px;
+}
+
+.page-content {
+  padding: 3.5rem 0;
+}
+
+/* ---- Amenities grid ------------------------------------ */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.amenity-card {
+  padding: 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 1.5);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.amenity-card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.amenity-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.amenity-card p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+/* ---- Gallery full (page version) ---------------------- */
+.gallery-full {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: 280px;
+}
+
+@media (max-width: 768px) {
+  .page-header { padding: 2.5rem 0 2rem; }
+  .page-content { padding: 2.5rem 0; }
+  .amenities-grid { grid-template-columns: 1fr; }
+  .gallery-full { grid-auto-rows: 240px; }
+}
